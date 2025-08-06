@@ -1,11 +1,11 @@
 
 # Setup Docker Laravel 11 com PHP 8.3
-[Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
+[Conheça a Codespace!](https://codespace.it.ao)
 
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone -b laravel-12-with-php8.4 https://github.com/especializati/setup-docker-laravel.git app-laravel
+git clone -b laravel-12-with-php8.4 https://github.com/codespace-ao/laravel-base.git app-laravel
 ```
 ```sh
 cd app-laravel
@@ -38,7 +38,7 @@ Gere a key do projeto Laravel
 php artisan key:generate
 ```
 
-OPCIONAL: Gere o banco SQLite (caso não use o banco MySQL)
+OPCIONAL: Gere o banco SQLite (caso não use o banco PostgreSql)
 ```sh
 touch database/database.sqlite
 ```
