@@ -1,0 +1,37 @@
+services:
+  # App (PHP-FPM)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - redis
+    networks:
+      - laravel
+
+  # Nginx
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - laravel
+
+  # Redis (cache/queue)
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
