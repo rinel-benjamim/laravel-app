@@ -1,7 +1,7 @@
 FROM php:8.4-fpm
 
 # set your user name, ex: user=rinel
-ARG user=yourusername
+ARG user=Learn
 ARG uid=1000
 
 # Instala dependências do sistema
