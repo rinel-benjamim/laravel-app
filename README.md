@@ -5,7 +5,7 @@
 ### Passo a passo
 Clone Repositório
 ```sh
-git clone -b laravel-12-with-php8.4 https://github.com/codespace-ao/laravel-base.git app-laravel
+git clone -b main https://github.com/codespace-ao/laravel-base.git app-laravel
 ```
 ```sh
 cd app-laravel
