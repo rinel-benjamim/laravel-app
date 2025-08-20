@@ -1,3 +1,9 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Criar Usuários')
+
+@section('content')
+
 <h1>Create users</h1>
 
 <form action="{{ route('users.store') }}" method="POST">
@@ -7,3 +13,4 @@
     <input type="password" name="password" placeholder="Senha">
     <input type="submit" value="Criar">
 </form>
+@endsection
