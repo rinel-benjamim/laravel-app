@@ -6,6 +6,14 @@
 
 <h1>Create users</h1>
 
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <div style="color: red;">
+            {{ $error }}
+        </div>        
+    @endforeach
+@endif
+
 <form action="{{ route('users.store') }}" method="POST">
     @csrf
     <input type="text" name="name" placeholder="Nome">
