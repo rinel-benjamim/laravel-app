@@ -3,7 +3,13 @@
 @section('content')
 
 <h1>Users</h1>
+
 <a href="{{ route('users.create') }}">Adicionar</a>
+
+@if (session('success'))
+{{ session('success') }}
+@endif
+
 <table border="1px">
     <thead>
         <tr>
