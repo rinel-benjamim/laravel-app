@@ -6,8 +6,8 @@
 
 <a href="{{ route('users.create') }}">Adicionar</a>
 
-@if (session('success'))
-{{ session('success') }}
+@if (session('message'))
+{{ session('message') }}
 @endif
 
 <table border="1px">
@@ -28,7 +28,7 @@
             <td>
                 {{ $user->email }}
             </td>
-            <td>-</td>
+            <td><a href="{{ route('users.edit', $user->id) }}">Edit</a></td>
         </tr>
         @empty
         <tr>
