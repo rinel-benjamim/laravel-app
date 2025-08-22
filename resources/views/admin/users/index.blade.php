@@ -6,9 +6,7 @@
 
 <a href="{{ route('users.create') }}">Adicionar</a>
 
-@if (session('message'))
-{{ session('message') }}
-@endif
+<x-alert/>
 
 <table border="1px">
     <thead>

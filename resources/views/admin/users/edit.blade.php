@@ -6,6 +6,8 @@
 
 <h1>Editar users - {{ $user->name }}</h1>
 
+<x-alert />
+
 @if ($errors->any())
 @foreach ($errors->all() as $error)
 <div style="color: red;">
