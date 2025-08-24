@@ -11,6 +11,7 @@
 <table border="1px">
     <thead>
         <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>Email</th>
             <th>Ação</th>
@@ -21,13 +22,16 @@
         @forelse ($users as $user)
         <tr>
             <td>
+                {{ $user->id }}
+            </td>
+            <td>
                 {{ $user->name }}
             </td>
             <td>
                 {{ $user->email }}
             </td>
             <td><a href="{{ route('users.edit', $user->id) }}">Edit</a></td>
-            <td><a href="{{ route('users.show', $user->id) }}">Details</a></td>
+            <td><a href="{{ route('users.show', $user->id) }}">Show</a></td>
         </tr>
         @empty
         <tr>

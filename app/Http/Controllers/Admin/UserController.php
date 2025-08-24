@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class UserController extends Controller
 {
@@ -45,10 +47,10 @@ class UserController extends Controller
             return redirect()->route('users.index')->with('message', 'Usuário não encontrado.');
         }
 
-        
+
         $data = ($request->only(['name', 'email']));
 
-        if($request->filled('password')){
+        if ($request->filled('password')) {
             $data['password'] = $request->password;
         }
 
@@ -61,10 +63,24 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if (!$user) {
-            dd('chegou aqui');
+
             return redirect()->route('users.index')->with('message', 'Usuário não encontrado.');
         }
 
         return view('admin.users.show', compact('user'));
+    }
+
+    public function destroy(string $id)
+    {
+        if (!$user = User::find($id)) {
+            return redirect()->route('users.index')->with('message', 'Usuário não encontrado.');
+        }
+
+        if (auth()->user()->id === $user->id) {
+            return back()->with('message', 'Você não pode deletar seu próprio usuário.');
+        }
+
+        $user->delete();
+        return redirect()->route('users.index')->with('message', 'Usuário deletado com sucesso!');
     }
 }
