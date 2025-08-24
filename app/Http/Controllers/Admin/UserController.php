@@ -56,4 +56,15 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('message', 'Usuário editado com sucesso!');
     }
+
+    public function show(string $id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            dd('chegou aqui');
+            return redirect()->route('users.index')->with('message', 'Usuário não encontrado.');
+        }
+
+        return view('admin.users.show', compact('user'));
+    }
 }
